@@ -1,1 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
+header {
+    background-color: #2c3e50; /* Darker blue for header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+header h2 {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+    color: #ecf0f1; /* Lighter shade for sub-heading */
+}
+
+#course-catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px; /* Space between semester sections */
+}
+
+.semester-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(33% - 40px); /* Approx 3 columns, adjust as needed */
+    min-width: 300px;
+    box-sizing: border-box;
+}
+
+.semester-section h3 {
+    text-align: center;
+    color: #3498db; /* Light blue for semester titles */
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.course-card {
+    background-color: #e0f2f7; /* Light blue for unapproved courses */
+    border: 1px solid #b3e5fc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none; /* Prevent text selection on click */
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card:hover:not(.approved):not(.locked) {
+    background-color: #c0e1ec; /* Slightly darker light blue on hover */
+    transform: translateY(-2px);
+}
+
+.course-card.approved {
+    background-color: #d4edda; /* Light green for approved courses */
+    border-color: #a8dadc;
+    cursor: default;
+    box-shadow: inset 0 0 5px rgba(0, 128, 0, 0.3);
+}
+
+.course-card.locked {
+    background-color: #f0f0f0; /* Grey for locked courses */
+    border-color: #ccc;
+    color: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.course-card h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #2c3e50;
+}
+
+.course-card p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.course-card .prerequisites {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.course-card.approved::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    font-size: 1.8em;
+    color: #28a745; /* Darker green checkmark */
+    font-weight: bold;
+}
